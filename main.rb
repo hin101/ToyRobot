@@ -1,12 +1,12 @@
 require_relative 'lib/robot_simulator'
 
-robotSimulator = RobotSimulator.new
+robot_simulator = RobotSimulator.new
 
 puts 'Enter a command or type EXIT to quit:'
 
 command = gets.chomp
-while command !~ /EXIT/i
-  output = robotSimulator.execute(command)
+while command !~ /EXIT/
+  output = robot_simulator.execute(command)
   puts output if output
   command = gets.chomp
 end
