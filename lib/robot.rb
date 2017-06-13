@@ -17,8 +17,6 @@ class Robot
       { x: -1, y: 0 }
     when :east
       { x: 1, y: 0 }
-    else
-      raise "#{direction} unknown"
     end
   end
 end
