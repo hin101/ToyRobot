@@ -40,4 +40,38 @@ describe 'Robot' do
       end
     end
   end
+
+  describe '#course' do
+    context 'robot is facing north' do
+      before { robot.orientation(:north) }
+
+      it 'moves up' do
+        expect(robot.course).to eq(x: 0, y: 1)
+      end
+    end
+
+    context 'robot is facing south' do
+      before { robot.orientation(:south) }
+
+      it 'moves down' do
+        expect(robot.course).to eq(x: 0, y: -1)
+      end
+    end
+
+    context 'robot is facing east' do
+      before { robot.orientation(:east) }
+
+      it 'moves right' do
+        expect(robot.course).to eq(x: 1, y: 0)
+      end
+    end
+
+    context 'robot is facing west' do
+      before { robot.orientation(:west) }
+
+      it 'moves left' do
+        expect(robot.course).to eq(x: -1, y: 0)
+      end
+    end
+  end
 end

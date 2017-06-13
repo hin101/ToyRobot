@@ -13,7 +13,7 @@ describe 'RobotSimulator' do
     end
 
     describe 'before robot has been placed' do
-      context 'REPORT command is given' do
+      context 'REPORT' do
         it 'warns the user to place the robot first' do
           expect(robot_simulator.execute('REPORT')).to eq('Robot must be placed first')
         end
@@ -36,6 +36,12 @@ describe 'RobotSimulator' do
           it 'does not place the robot on the table' do
             expect(robot_simulator.execute('PLACE 0,10,NORTH')).to eq('Invalid arguments passed into PLACE.')
           end
+        end
+      end
+
+      context 'MOVE' do
+        it 'warns the user to place the robot first' do
+          expect(robot_simulator.execute('MOVE')).to eq('Robot must be placed first')
         end
       end
     end
@@ -64,10 +70,28 @@ describe 'RobotSimulator' do
           end
         end
       end
- 
+
       describe 'REPORT' do
         it 'returns the result' do
           expect(robot_simulator.execute('REPORT')).to eq('0,0,NORTH')
+        end
+      end
+
+      describe 'MOVE' do
+        context 'robot is still on the table' do
+          it 'moves the robot' do
+            robot_simulator.execute('MOVE')
+          end
+        end
+
+        context 'robot is about to fall off the table' do
+          it 'warns the user and does not move the robot' do
+            4.times do
+              robot_simulator.execute('MOVE')
+            end
+
+            expect(robot_simulator.execute('MOVE')).to eq('Robot will fall off the table')
+          end
         end
       end
     end

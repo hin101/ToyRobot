@@ -2,8 +2,23 @@ class Robot
   attr_accessor :direction
 
   def orientation(orientation)
-    if %i[north south west east].include?(orientation)
-      self.direction = orientation
+    self.direction = if %i[north south west east].include?(orientation)
+                       orientation
+                     end
+  end
+
+  def course
+    case direction
+    when :north
+      { x: 0, y: 1 }
+    when :south
+      { x: 0, y: -1 }
+    when :west
+      { x: -1, y: 0 }
+    when :east
+      { x: 1, y: 0 }
+    else
+      raise "#{direction} unknown"
     end
   end
 end

@@ -20,7 +20,7 @@ class RobotSimulator
     when 'REPORT'
       report
     when 'MOVE'
-      puts 'move'
+      move
     when 'LEFT'
       puts 'left'
     when 'RIGHT'
@@ -45,7 +45,7 @@ class RobotSimulator
         error = 'Invalid arguments passed into PLACE.'
       end
     rescue
-      error = 'Invalid arguments passed into PLACE.'
+      error = 'No arguments passed into PLACE. Please provide the x, y co-ordinates and the direction'
     end
     error
   end
@@ -55,5 +55,14 @@ class RobotSimulator
     position = @table.position
     facing = @robot.direction
     "#{position[:x]},#{position[:y]},#{facing.to_s.upcase}"
+  end
+
+  def move
+    return 'Robot must be placed first' unless @table.robot_placed?
+    course = @robot.course
+    position = @table.position
+    x_pos = position[:x] + course[:x]
+    y_pos = position[:y] + course[:y]
+    'Robot will fall off the table' unless @table.place(x_pos, y_pos)
   end
 end
