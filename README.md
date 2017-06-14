@@ -1,5 +1,5 @@
 # ToyRobot
-This application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units
+This application is a simulation of a toy robot.
 ## Installation
 To begin, ensure you have [Git](https://git-scm.com/downloads) and [Ruby 2.3.4](https://www.ruby-lang.org/en/downloads/) installed, then run the following commands:
 ```git clone git@github.com:hin101/ToyRobot.git
@@ -32,3 +32,15 @@ Specification
 Description
 -----------
 
+- The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
+- There are no other obstructions on the table surface.
+- The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
+- Create an application that can read in commands of the following forms -
+```
+PLACE X,Y,F
+MOVE
+LEFT
+RIGHT
+REPORT
+```
+- `PLACE` will put the toy robot on the table in position `X`, `Y` and facing `NORTH`, `SOUTH`, `EAST` or `WEST`.
