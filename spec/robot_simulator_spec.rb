@@ -44,6 +44,18 @@ describe 'RobotSimulator' do
           expect(robot_simulator.execute('MOVE')).to eq('Robot must be placed first')
         end
       end
+
+      context 'RIGHT' do
+        it 'warns the user to place the robot first' do
+          expect(robot_simulator.execute('RIGHT')).to eq('Robot must be placed first')
+        end
+      end
+
+      context 'LEFT' do
+        it 'warns the user to place the robot first' do
+          expect(robot_simulator.execute('LEFT')).to eq('Robot must be placed first')
+        end
+      end
     end
 
     describe 'after the robot has been placed' do
@@ -93,6 +105,18 @@ describe 'RobotSimulator' do
             expect(robot_simulator.execute('MOVE')).to eq('Robot will fall off the table')
           end
         end
+      end
+    end
+
+    describe 'LEFT' do
+      it 'moves the robot left' do
+        robot_simulator.execute('LEFT')
+      end
+    end
+
+    describe 'RIGHT' do
+      it 'moves the robot right' do
+        robot_simulator.execute('RIGHT')
       end
     end
   end

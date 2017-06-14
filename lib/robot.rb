@@ -1,10 +1,22 @@
 class Robot
   attr_accessor :direction
 
+  DIRECTIONS = %i[north east south west].freeze
+
   def orientation(orientation)
-    self.direction = if %i[north south west east].include?(orientation)
-                       orientation
-                     end
+    self.direction = orientation if DIRECTIONS.include?(orientation)
+  end
+
+  def left
+    self.direction = DIRECTIONS[(DIRECTIONS.index(direction) - 1) % 4]
+  end
+
+  def right
+    self.direction = DIRECTIONS[(DIRECTIONS.index(direction) + 1) % 4]
+  end
+
+  def facing_direction?
+    direction != nil
   end
 
   def course

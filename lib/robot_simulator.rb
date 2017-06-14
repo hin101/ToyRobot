@@ -22,15 +22,19 @@ class RobotSimulator
     when 'MOVE'
       move
     when 'LEFT'
-      puts 'left'
+      left
     when 'RIGHT'
-      puts 'right'
+      right
     else
       puts "Invalid command: #{command_operator}"
     end
   end
 
   private
+
+  def robot_on_table?
+    @table.robot_placed? && @robot.facing_direction?
+  end
 
   def place(placement)
     error = nil
@@ -51,18 +55,34 @@ class RobotSimulator
   end
 
   def report
-    return 'Robot must be placed first' unless @table.robot_placed?
+    return 'Robot must be placed first' unless robot_on_table?
     position = @table.position
     facing = @robot.direction
     "#{position[:x]},#{position[:y]},#{facing.to_s.upcase}"
   end
 
   def move
-    return 'Robot must be placed first' unless @table.robot_placed?
+    return 'Robot must be placed first' unless robot_on_table?
     course = @robot.course
     position = @table.position
     x_pos = position[:x] + course[:x]
     y_pos = position[:y] + course[:y]
-    'Robot will fall off the table' unless @table.place(x_pos, y_pos)
+    if @table.place(x_pos, y_pos)
+      nil
+    else
+      'Robot will fall off the table'
+    end
+  end
+
+  def left
+    return 'Robot must be placed first' unless robot_on_table?
+    @robot.left
+    nil
+  end
+
+  def right
+    return 'Robot must be placed first' unless robot_on_table?
+    @robot.right
+    nil
   end
 end
