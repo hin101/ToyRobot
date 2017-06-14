@@ -26,7 +26,7 @@ class RobotSimulator
     when 'RIGHT'
       right
     else
-      puts "Invalid command: #{command_operator}"
+      "Invalid command: #{command_operator}"
     end
   end
 
