@@ -19,8 +19,9 @@ rspec
 ```
 ## Notes
 Rather then have one class do all the processing of commands, I have created the following classes:
-..* `main.rb` - This class is where the command is input and sent to the `RobotSimulator` class.
-..* `lib/robot_simulator.rb` - This class processes the commands and also initializes a new `Robot` and `Table` object.
-..* `lib/robot.rb` - The `Robot` class is where I handle the movement of the robot, the reason I choose to handle the movement here is to conform with the single responsibility principle.
-..* `lib/table.rb` - The `Table` class is where I map out the table and place the robot. Again, the reason why I handle this here is to conform with the sindle responsibility principle.
-..* Rubocop - I have, where possible, styled my code to conform with the Rubocop style guidelines.
+
+* `main.rb` - This class is where the command is input and sent to the `RobotSimulator` class.
+* `lib/robot_simulator.rb` - This class processes the commands and also initializes a new `Robot` and `Table` object.
+* `lib/robot.rb` - The `Robot` class is where I handle the movement of the robot, the reason I choose to handle the movement here is to conform with the single responsibility principle.
+* `lib/table.rb` - The `Table` class is where I map out the table and place the robot. Again, the reason why I handle this here is to conform with the sindle responsibility principle.
+* Rubocop - I have, where possible, styled my code to conform with the Rubocop style guidelines.
