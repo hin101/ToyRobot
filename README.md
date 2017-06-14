@@ -2,7 +2,8 @@
 This application is a simulation of a toy robot.
 ## Installation
 To begin, ensure you have [Git](https://git-scm.com/downloads) and [Ruby 2.3.4](https://www.ruby-lang.org/en/downloads/) installed, then run the following commands:
-```git clone git@github.com:hin101/ToyRobot.git
+```
+git clone git@github.com:hin101/ToyRobot.git
 cd ToyRobot
 gem install bundler
 bundle install
