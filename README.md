@@ -18,7 +18,8 @@ By default, the table has a width of 5 and a height of 5, you can customise this
 ```
 # main.rb
 ...
-table = Table.new # to specify a table of 4x4, initialise as Table.new(4, 4)
+# To specify a table of 4x4, initialise as Table.new(4, 4)
+table = Table.new
 ```
 ## Running The Tests
 To run the tests, run the following command:
