@@ -1,6 +1,8 @@
 require_relative 'lib/robot_simulator'
+require_relative 'lib/table'
 
-robot_simulator = RobotSimulator.new
+table = Table.new
+robot_simulator = RobotSimulator.new(table)
 
 puts 'Enter a command or type EXIT to quit:'
 

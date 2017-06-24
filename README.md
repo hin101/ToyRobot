@@ -13,6 +13,13 @@ To run the robot simulator, run the following command:
 ```
 ruby main.rb
 ```
+### Customising The Table
+By default, the table has a width of 5 and a height of 5, you can customise this by passing your desired height and width as parameters in initialisation of the table in the `main.rb` file:
+```
+# main.rb
+...
+table = Table.new # to specify a table of 4x4, initialise as Table.new(4, 4)
+```
 ## Running The Tests
 To run the tests, run the following command:
 ```

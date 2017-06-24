@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe 'RobotSimulator' do
-  let(:robot_simulator) { RobotSimulator.new }
   let(:robot) { Robot.new }
   let(:table) { Table.new }
+  let(:robot_simulator) { RobotSimulator.new(table) }
 
   describe '#execute' do
     context 'blank string' do

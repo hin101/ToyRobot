@@ -74,4 +74,24 @@ describe 'Table' do
       end
     end
   end
+
+  describe 'Table is 3 x 3' do
+    before do
+      @table2 = Table.new(4, 4)
+    end
+
+    describe '#place' do
+      it 'has a valid placement' do
+        expect(@table2.place(0, 0)).to_not be_nil
+      end
+
+      it 'does not allow placement of X co-ordinate to be more than 3' do
+        expect(@table2.place(4, 0)).to be_nil
+      end
+
+      it 'does not allow placement of Y co-ordinate to be more than 3' do
+        expect(@table2.place(0, 4)).to be_nil
+      end
+    end
+  end
 end

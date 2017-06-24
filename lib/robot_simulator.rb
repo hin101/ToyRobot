@@ -2,8 +2,8 @@ require_relative 'table'
 require_relative 'robot'
 
 class RobotSimulator
-  def initialize
-    @table = Table.new
+  def initialize(table)
+    @table = table
     @robot = Robot.new
   end
 
