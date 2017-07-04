@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe 'RobotSimulator' do
-  let(:robot_simulator) { RobotSimulator.new }
+  let(:table) { Table.new }
+  let(:robot_simulator) { RobotSimulator.new(table) }
 
   subject do
     commands.each { |c| robot_simulator.execute(c) }
